@@ -4,8 +4,10 @@ $(document).on('pageinit', function() {
 	//set up listener for button click
 	$(document).on('click', getPosition);
 
-	$('.CurrentPosOn').on('click', currrentPosition);
+	currrentPosition();
 	
+	$('.CurrentPosOff').on('click',)
+
 	//change time box to show message
 	$('#time').val("Press the button to get location data");
 	
@@ -43,6 +45,14 @@ function successCurrentPos(position){
 
 	$("#CurrentLong").val(currentLong);
 
+
+
+}
+
+function currentPosOff(){
+
+
+	navigator.geolocation.clearWatch();
 
 
 }
