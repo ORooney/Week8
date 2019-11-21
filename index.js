@@ -3,11 +3,14 @@ $(document).on('pageinit', function() {
 	
 	//set up listener for button click
 	$(document).on('click', getPosition);
+
+	$('.CurrentPosOn').on('click', currrentPosition);
 	
 	//change time box to show message
 	$('#time').val("Press the button to get location data");
 	
 });
+
 
 
 //Call this function when you want to get the current position
@@ -19,6 +22,37 @@ function getPosition() {
 	//instruct location service to get position with appropriate callbacks
 	navigator.geolocation.getCurrentPosition(successPosition, failPosition);
 }
+
+
+function currrentPosition(){
+
+	$('currentPos').val("Getting data....");
+
+	navigator.geolocation.watchPosition(successCurrentPos, failPosition);
+
+}
+
+function successCurrentPos(position){
+
+
+	var currentLat = position.coords.latitude;
+
+	var currentLong = position.coords.longitude;
+
+	$("#CurrentLat").val(currentLat);
+
+	$("#CurrentLong").val(currentLong);
+
+
+
+}
+
+
+
+
+
+
+
 
 
 //called when the position is successfully determined
